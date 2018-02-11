@@ -26,12 +26,26 @@ const theme = createMuiTheme({
 });
 
 class App extends React.Component {
+
+  state = {
+    summaryValue: "" 
+  }
+
+  handleSummaryChange(event) {
+    this.setState({
+      summaryValue: event.target.value,
+    });
+  };
+
+
   render() {
+    const {summaryValue} = this.state;
     return (
       <MuiThemeProvider theme={theme}>
       <div className="App">
       <p>I work </p>
-      <Layout />
+      <Layout handleSummaryChange summaryValue />
+
       </div>
       </MuiThemeProvider>
     );

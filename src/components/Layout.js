@@ -5,7 +5,6 @@ import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
 import ClientSummary from './ClientSummary';
 
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -28,19 +27,17 @@ function CenteredGrid(props) {
           {/* use stepper */}
         </Grid>
         <Grid item xs={6}>
-        <h1>Client Summary </h1>
+          <h1>Client Summary </h1>
           <ClientSummary />
         </Grid>
         <Grid item xs={6}>
-        <h1>Duration of Package </h1>
-
+          <h1>Duration of Package </h1>
         </Grid>
         <Grid item xs={6}>
-        <h1>Skills and Competencies Required </h1>
-
+          <h1>Skills and Competencies Required </h1>
         </Grid>
         <Grid item xs={6}>
-        <h1>Staff Gender Preferences </h1>
+          <h1>Staff Gender Preferences </h1>
         </Grid>
       </Grid>
     </div>
