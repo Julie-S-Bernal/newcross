@@ -15,44 +15,39 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       ...blue,
-      500: accent
+      500: accent,
     },
     secondary: {
       ...grey,
-      100: second
+      100: second,
     },
-    error: red
-  }
+    error: red,
+  },
 });
 
 class App extends React.Component {
-
   state = {
-    summaryValue: "" 
-  }
+    summaryValue: 'Hello',
+  };
 
-  handleSummaryChange(event) {
+  handleSummaryChange = (event) =>  {
+    console.log(event);
     this.setState({
       summaryValue: event.target.value,
     });
-  };
-
+  }
 
   render() {
-    const {summaryValue} = this.state;
+    const { summaryValue } = this.state;
     return (
       <MuiThemeProvider theme={theme}>
-      <div className="App">
-      <p>I work </p>
-      <Layout handleSummaryChange summaryValue />
-
-      </div>
+        <div className="App">
+          <p>I work </p>
+          <Layout handleSummaryChange={this.handleSummaryChange} summaryValue={summaryValue} />
+        </div>
       </MuiThemeProvider>
     );
   }
 }
 
 export default App;
-
-
-

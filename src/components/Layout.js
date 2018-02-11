@@ -18,7 +18,8 @@ const styles = theme => ({
 });
 
 function CenteredGrid(props) {
-  const { classes } = props;
+  const { classes, summaryValue, handleSummaryChange } = props;
+
 
   return (
     <div className={classes.root}>
@@ -28,7 +29,7 @@ function CenteredGrid(props) {
         </Grid>
         <Grid item xs={6}>
           <h1>Client Summary </h1>
-          <ClientSummary />
+          <ClientSummary summaryValue={summaryValue} handleSummaryChange={handleSummaryChange} />
         </Grid>
         <Grid item xs={6}>
           <h1>Duration of Package </h1>

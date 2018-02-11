@@ -32,37 +32,27 @@ const styles = theme => ({
   },
 });
 
-const ClientSummaryTextField = (props) => {
-  const { classes, summaryValue, handleSummaryChange } = this.props;
-  return (
-    <TextField
-      value={summaryValue}
-      onChange={handleSummaryChange}
-      rowsMax="4"
-      placeholder="Placeholder"
-      multiline
-      rows="4"
-      defaultValue="Default Value"
-      className={classes.textField}
-      margin="normal"
-      className={classes.textField}
-      InputProps={{
-        disableUnderline: true,
-        classes: {
-          root: classes.textFieldRoot,
-          input: classes.textFieldInput,
-        },
-      }}
-      InputLabelProps={{
-        shrink: true,
-        className: classes.textFieldFormLabel,
-      }}
-    />
-  );
-};
+class ClientSummaryTextField  extends React.Component{
+  propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
 
-TextFields.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+ 
 
-export default withStyles(styles)(TextFields);
+  render() {
+      
+    const { classes, summaryValue, handleSummaryChange } = this.props;
+    console.log(summaryValue);
+    return (
+      <TextField
+        value={summaryValue}
+        onChange={handleSummaryChange}
+        rowsMax="4"
+        multiline
+        rows="4"    
+      />
+    );
+  }
+}
+
+export default withStyles(styles)(ClientSummaryTextField);
