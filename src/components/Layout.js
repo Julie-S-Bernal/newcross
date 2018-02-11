@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
+import ClientSummary from './ClientSummary';
 
 
 const styles = theme => ({
@@ -28,7 +29,7 @@ function CenteredGrid(props) {
         </Grid>
         <Grid item xs={6}>
         <h1>Client Summary </h1>
-   
+          <ClientSummary />
         </Grid>
         <Grid item xs={6}>
         <h1>Duration of Package </h1>
