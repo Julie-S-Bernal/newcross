@@ -19,7 +19,7 @@ const styles = theme => ({
     lineHeight: '-30px',
     padding: '1vh',
     margin: '2vh 2vh 2vh 2vh',
-    width: '80vw',
+    width: '42vw',
     // height: '20vh',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
@@ -28,7 +28,7 @@ const styles = theme => ({
     },
   },
   menu: {
-    width: 200,
+    width: 100,
   },
 });
 
@@ -38,7 +38,6 @@ class ClientSummaryTextField  extends React.Component{
   };
 
  
-
   render() {
       
     const { classes, summaryValue, handleSummaryChange } = this.props;
@@ -49,10 +48,26 @@ class ClientSummaryTextField  extends React.Component{
         onChange={handleSummaryChange}
         rowsMax="4"
         multiline
-        rows="4"    
+        rows="4" 
+        className={classes.textField}
+          margin="normal"
+          className={classes.textField}
+          InputProps={{
+                    disableUnderline: true,
+                    classes: {
+                    root: classes.textFieldRoot,
+                      input: classes.textFieldInput,
+                    },
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                    className: classes.textFieldFormLabel,
+                  }}
       />
     );
   }
 }
 
 export default withStyles(styles)(ClientSummaryTextField);
+
+          
