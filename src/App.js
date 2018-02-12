@@ -40,17 +40,18 @@ class App extends React.Component {
   handleDateChange = (event, dateValue) =>  {
     console.log(event);
     this.setState({
-      DateValue: event.target.value,
+      dateValue: event.target.value,
     });
   }
 
   render() {
     const { summaryValue } = this.state;
+    const {dateValue} =this.state;
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <p>I work </p>
-          <Layout handleSummaryChange={this.handleSummaryChange} summaryValue={summaryValue} />
+          <Layout handleSummaryChange={this.handleSummaryChange} summaryValue={summaryValue} handleDateChange={this.handleDateChange} dateValue={dateValue} />
         </div>
       </MuiThemeProvider>
     );
