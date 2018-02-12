@@ -6,7 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // have a look at colors that I need here
 import { blue, grey, red } from 'material-ui/colors';
 import './style/App.css';
-import Layout from './components/Layout.js';
+import CenteredGrid from './components/CenteredGrid.js';
 
 const accent = blue['500'];
 const second = grey['100'];
@@ -31,7 +31,7 @@ class App extends React.Component {
     dateValue: 'dd/mm/yyyy',
     endValue: '',
     staffValue:'None',
-    skillvalue:{},
+    skillvalue:'',
 
   };
 
@@ -76,7 +76,7 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <p>I work </p>
-          <Layout 
+          <CenteredGrid 
           handleSummaryChange={this.handleSummaryChange} 
           summaryValue={summaryValue} 
           handleDateChange={this.handleDateChange} 

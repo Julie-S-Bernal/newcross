@@ -7,7 +7,7 @@ import ClientSummary from './ClientSummary';
 import DurationPackage from './DurationPackage';
 import EndPackage from './EndPackage';
 import StaffGender from './StaffGender';
-import SkillCompetency from './SkillCompetency';
+
 
 const styles = theme => ({
   root: {
@@ -61,7 +61,7 @@ function CenteredGrid(props) {
         <Grid item xs={6}>
           <h1>Skills and Competencies Required </h1>
           <Paper className={classes.paper}>
-          <SkillCompetency skillValue= {skillValue} handleSkillChange={handleSkillChange} />
+          
           </Paper>
         </Grid>
         <Grid item xs={6}>
