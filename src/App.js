@@ -29,7 +29,10 @@ class App extends React.Component {
   state = {
     summaryValue: 'Please add summary of client and why they need care',
     dateValue: 'dd/mm/yyyy',
-    endValue: ''
+    endValue: '',
+    staffValue:'None',
+    skillvalue:{},
+
   };
 
   handleSummaryChange = (event, summaryValue) =>  {
@@ -56,12 +59,19 @@ class App extends React.Component {
       staffValue: event.target.value,
     });
   }
+  handleSkillChange = (event, skillValue) => {
+    console.log(event);
+    this.setState({
+      skillValue: event.target.value,
+    });
+  };
 
   render() {
     const { summaryValue } = this.state;
     const {dateValue} =this.state;
     const {endValue} =this.state;
     const {staffValue} =this.state;
+    const {skillValue} =this.state;
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
@@ -74,7 +84,9 @@ class App extends React.Component {
           handleEndChange={this.handleEndChange} 
           endValue={endValue} 
           handleStaffChange={this.handleStaffChange} 
-          staffValue={staffValue} 
+          staffValue={staffValue}
+          handleSkillChange={this.handleSkillChange} 
+          skillValue={skillValue}  
           />
         </div>
       </MuiThemeProvider>
