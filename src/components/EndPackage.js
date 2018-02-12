@@ -6,9 +6,7 @@ import EndPackageDate from './EndPackageDate';
 const EndPackage = (props) => {
   const { endValue, handleEndChange } = props;
   return (
-    // <Paper>
       <EndPackageDate endValue={endValue} handleEndChange={handleEndChange} />
-    // </Paper>
   );
 };
 

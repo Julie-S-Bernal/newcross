@@ -6,6 +6,7 @@ import Grid from 'material-ui/Grid';
 import ClientSummary from './ClientSummary';
 import DurationPackage from './DurationPackage';
 import EndPackage from './EndPackage';
+import StaffGender from './StaffGender';
 
 const styles = theme => ({
   root: {
@@ -22,7 +23,17 @@ const styles = theme => ({
 });
 
 function CenteredGrid(props) {
-  const { classes, summaryValue, handleSummaryChange,dateValue, handleDateChange,endValue, handleEndChange } = props;
+  const { classes,
+          summaryValue,
+          handleSummaryChange,
+          dateValue,
+          handleDateChange,
+          endValue,
+          handleEndChange,
+          staffValue,
+          handleStaffChange,       
+        } 
+          = props;
 
 
   return (
@@ -52,6 +63,7 @@ function CenteredGrid(props) {
         <Grid item xs={6}>
           <h1>Staff Gender Preferences </h1>
           <Paper className={classes.paper}>
+          <StaffGender staffValue= {staffValue} handleStaffChange={handleStaffChange} />
           </Paper>
         </Grid>
       </Grid>

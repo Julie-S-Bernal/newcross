@@ -16,25 +16,26 @@ const styles = theme => ({
   },
 });
 
-class EndPackageDate extends React.Component {
+class StaffGenderRadio extends React.Component {
     propTypes = {
     classes: PropTypes.object.isRequired,
   };
 
   render() {
-    const{classes, endValue, handleEndChange } = this.props;
-    console.log(endValue);
+    const{classes, staffValue, handleStaffChange } = this.props;
+    console.log(staffValue);
 
     return (
       <div className={classes.root}>
         <FormControl component="fieldset" required className={classes.formControl}>
           <RadioGroup
             className={classes.group}
-            value={endValue}
-            onChange={handleEndChange}
+            value={staffValue}
+            onChange={handleStaffChange}
           >
-            <FormControlLabel value="Ongoing" control={<Radio />} label="Ongoing" />
-            <FormControlLabel value="Specific" control={<Radio />} label="Specific" />
+            <FormControlLabel value="None" control={<Radio />} label="none" />
+            <FormControlLabel value="Male" control={<Radio />} label="Male" />
+            <FormControlLabel value="Female" control={<Radio />} label="Female" />
           </RadioGroup>
         </FormControl>
       </div>
@@ -42,4 +43,4 @@ class EndPackageDate extends React.Component {
   }
 }
 
-export default withStyles(styles)(EndPackageDate);
+export default withStyles(styles)(StaffGenderRadio);

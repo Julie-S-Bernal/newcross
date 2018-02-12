@@ -50,11 +50,18 @@ class App extends React.Component {
       endValue: event.target.value,
     });
   }
+  handleStaffChange = (event, staffValue) =>  {
+    console.log(event);
+    this.setState({
+      staffValue: event.target.value,
+    });
+  }
 
   render() {
     const { summaryValue } = this.state;
     const {dateValue} =this.state;
     const {endValue} =this.state;
+    const {staffValue} =this.state;
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
@@ -66,6 +73,8 @@ class App extends React.Component {
           dateValue={dateValue}
           handleEndChange={this.handleEndChange} 
           endValue={endValue} 
+          handleStaffChange={this.handleStaffChange} 
+          staffValue={staffValue} 
           />
         </div>
       </MuiThemeProvider>
