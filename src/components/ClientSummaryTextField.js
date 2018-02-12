@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
+
 
 const styles = theme => ({
   container: {
@@ -32,7 +31,7 @@ const styles = theme => ({
   },
 });
 
-class ClientSummaryTextField  extends React.Component{
+class ClientSummaryTextField extends React.Component{
   propTypes = {
     classes: PropTypes.object.isRequired,
   };

@@ -27,13 +27,20 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
   state = {
-    summaryValue: 'Hello',
+    summaryValue: 'Please add summary of client and why they need care',
+    dateValue: 'dd/mm/yyyy'
   };
 
-  handleSummaryChange = (event) =>  {
+  handleSummaryChange = (event, summaryValue) =>  {
     console.log(event);
     this.setState({
       summaryValue: event.target.value,
+    });
+  }
+  handleDateChange = (event, dateValue) =>  {
+    console.log(event);
+    this.setState({
+      DateValue: event.target.value,
     });
   }
 
