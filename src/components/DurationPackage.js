@@ -6,9 +6,9 @@ import DurationPackageDate from './DurationPackageDate';
 const DurationPackage = (props) => {
   const { dateValue, handleDateChange } = props;
   return (
-    <Paper>
+   
       <DurationPackageDate dateValue={dateValue} handleDateChange={handleDateChange} />
-    </Paper>
+  
   );
 };
 
