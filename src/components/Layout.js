@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
 import ClientSummary from './ClientSummary';
+import DurationPackage from './DurationPackage';
 
 const styles = theme => ({
   root: {
@@ -18,7 +19,7 @@ const styles = theme => ({
 });
 
 function CenteredGrid(props) {
-  const { classes, summaryValue, handleSummaryChange } = props;
+  const { classes, summaryValue, handleSummaryChange,dateValue, handleDateChange } = props;
 
 
   return (
@@ -33,6 +34,7 @@ function CenteredGrid(props) {
         </Grid>
         <Grid item xs={6}>
           <h1>Duration of Package </h1>
+          <DurationPackage dateValue= {dateValue} handleDateChange={handleDateChange} />
         </Grid>
         <Grid item xs={6}>
           <h1>Skills and Competencies Required </h1>
