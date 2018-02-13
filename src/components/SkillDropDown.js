@@ -25,14 +25,13 @@ class SkillDropdown extends React.Component {
 
   render() {
     const{classes, skillValue, handleSkillChange } = this.props;
-
     return (
         <FormControl className={classes.formControl}>
         <InputLabel htmlFor="simple">Select Skill and Competency</InputLabel>
         <Select
           value={skillValue}
           onChange={handleSkillChange}
-        >
+        >     
           {data.skills.map( val => (<MenuItem value={val}>{val}</MenuItem>))}
         </Select>
       </FormControl>

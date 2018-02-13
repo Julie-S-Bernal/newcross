@@ -49,9 +49,9 @@ class ClientSummaryTextField extends React.Component{
         multiline
         rows="4" 
         className={classes.textField}
-          margin="normal"
-          className={classes.textField}
-          InputProps={{
+        margin="normal"
+        className={classes.textField}
+        InputProps={{
                     disableUnderline: true,
                     classes: {
                     root: classes.textFieldRoot,

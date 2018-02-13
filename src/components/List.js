@@ -10,64 +10,50 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import FolderIcon from 'material-ui-icons/Folder';
 import DeleteIcon from 'material-ui-icons/Delete';
+import SkillDropDown from './SkillDropDown';
+import CenteredGrid from './CenteredGrid';
+import {skillValue} from './CenteredGrid';
+import {handleSkillChange} from'./CenteredGrid';
+
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
     maxWidth: 752,
   },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
-  },
   title: {
     margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
   },
 });
 
-function generate(element) {
-  return [0, 1, 2].map(value =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
+class ItemsList extends React.Component {
 
-class InteractiveList extends React.Component {
-  state = {
-    dense: false,
-    secondary: false,
+  propTypes = {
+    classes: PropTypes.object.isRequired,
   };
 
   render() {
-    const { classes } = this.props;
-    const { dense, secondary } = this.state;
 
+    //render them into list here
+    const {classes} = this.props;
+    console.log(this.props.skills);
     return (
       <div className={classes.root}>
-        <Grid container>
-          <Grid item xs={12} md={6}>
-            <div className={classes.demo}>
-              <List dense={dense}>
-                {generate(
-                  <ListItem>
+              <List>
+                <ListItem>
+                  { this.props.skills && this.props.skills.map(skill => 
                     <ListItemText
-                      primary="Single-line item"
-                      secondary={secondary ? 'Secondary text' : null}
+                    primarykey={this.handleSkillChange }
+                    secondary={skill}
+                    //to do a function to push them into the list each time the user does it.
                     />
-                  </ListItem>,
-                )}
+                  )}
+                </ListItem>
               </List>
             </div>
-          </Grid>
-
-        </Grid>
-      </div>
     );
   }
 }
 
-InteractiveList.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(InteractiveList);
+export default withStyles(styles)(ItemsList);

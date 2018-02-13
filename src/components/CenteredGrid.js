@@ -39,6 +39,8 @@ function CenteredGrid(props) {
         } 
           = props;
 
+          console.log('skillValue', skillValue);
+
 
   return (
     <div className={classes.root}>
@@ -63,7 +65,7 @@ function CenteredGrid(props) {
           <h1>Skills and Competencies Required </h1>
           <Paper className={classes.paper}>
             <SkillDropdown  skillValue={skillValue} handleSkillChange={handleSkillChange} />
-            <List />
+            <List skills={skillValue}/>
           </Paper>
         </Grid>
         <Grid item xs={6}>

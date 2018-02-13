@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import ReactDOM from 'react-dom';
-import './style/index.css';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // have a look at colors that I need here
 import { blue, grey, red } from 'material-ui/colors';
@@ -31,7 +30,7 @@ class App extends React.Component {
     dateValue: 'dd/mm/yyyy',
     endValue: '',
     staffValue:'None',
-    skillValue: 'Registered Mental Health Nurses',
+    skillValue: [],
 
   };
 
@@ -60,11 +59,17 @@ class App extends React.Component {
     });
   }
   handleSkillChange = (event, skillValue) => {
-    this.setState({
-      skillValue: event.target.value,
-    });
-    console.log(this.state);
+    console.log(event.target);
+
+    const newSkillValues = [...this.state.skillValue, event.target.value]
+
+    this.setState({ skillValue: newSkillValues }, () => console.log(this.state));
+    // this.setState({
+    //   skillValue: event.target.value,
+    // });
+    // console.log(this.state);
   };
+  
 
   render() {
     const { summaryValue } = this.state;
