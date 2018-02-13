@@ -8,7 +8,8 @@ import DurationPackage from './DurationPackage';
 import EndPackage from './EndPackage';
 import StaffGender from './StaffGender';
 import SkillDropdown from './SkillDropDown';
-import List from './List';
+import SkillList from './SkillList';
+import SkillTextField from './SkillTextField';
 
 const styles = theme => ({
   root: {
@@ -35,12 +36,12 @@ function CenteredGrid(props) {
           staffValue,
           handleStaffChange,
           skillValue,
-          handleSkillChange,     
-        } 
-          = props;
-
-          console.log('skillValue', skillValue);
-
+          handleSkillChange, 
+          skillTextValue,
+          handleSkillTextChange,
+          handleSkillClick,
+          handleRemoveSkill
+        } = props;
 
   return (
     <div className={classes.root}>
@@ -65,7 +66,12 @@ function CenteredGrid(props) {
           <h1>Skills and Competencies Required </h1>
           <Paper className={classes.paper}>
             <SkillDropdown  skillValue={skillValue} handleSkillChange={handleSkillChange} />
-            <List skills={skillValue}/>
+            <SkillList skills={skillValue} handleRemoveSkill={handleRemoveSkill} />
+            <SkillTextField 
+              skillTextValue={skillTextValue}
+              handleSkillTextChange={handleSkillTextChange} 
+              handleSkillClick={handleSkillClick}
+            />
           </Paper>
         </Grid>
         <Grid item xs={6}>

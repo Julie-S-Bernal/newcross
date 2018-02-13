@@ -31,65 +31,90 @@ class App extends React.Component {
     endValue: '',
     staffValue:'None',
     skillValue: [],
-
+    skillTextValue: 'Please Enter your additional skill',
   };
 
-  handleSummaryChange = (event, summaryValue) =>  {
+  handleSummaryChange = (event) =>  {
     console.log(event);
     this.setState({
       summaryValue: event.target.value,
     });
   }
-  handleDateChange = (event, dateValue) =>  {
-    console.log(event);
+  handleDateChange = (event) =>  {
     this.setState({
       dateValue: event.target.value,
     });
   }
-  handleEndChange = (event, endValue) =>  {
-    console.log(event);
+  handleEndChange = (event) =>  {
     this.setState({
       endValue: event.target.value,
     });
   }
-  handleStaffChange = (event, staffValue) =>  {
-    console.log(event);
+  
+  handleStaffChange = (event) =>  {
     this.setState({
       staffValue: event.target.value,
     });
   }
-  handleSkillChange = (event, skillValue) => {
-    console.log(event.target);
-
-    const newSkillValues = [...this.state.skillValue, event.target.value]
-
-    this.setState({ skillValue: newSkillValues }, () => console.log(this.state));
-    // this.setState({
-    //   skillValue: event.target.value,
-    // });
-    // console.log(this.state);
-  };
   
+  handleSkillChange = (event) => {
+    const newSkillValues = [...this.state.skillValue, event.target.value]
+    this.setState({ skillValue: newSkillValues } );
+  }
+
+  handleSkillTextChange = (event) => {
+    this.setState({
+      skillTextValue: event.target.value
+    });
+  }
+
+  handleSkillClick = (event) => {
+    debugger;
+    const newSkillValues = [...this.state.skillValue, this.state.skillTextValue]
+    this.setState({ skillValue:  newSkillValues});
+  }
+  
+
+  handleStaffChange = (event) =>  {
+    console.log(event);
+    this.setState({
+      skillTextValue: event.target.value,
+    });
+  }
+
+  handleRemoveSkill = (index) => {
+    console.log('Index:', index);
+    debugger;
+    this.setState( (state) => {
+      const val = this.state.skillValue;
+      val.splice(index, 1);
+      return { skillValue: val }
+    }) 
+  }
 
   render() {
     const { summaryValue } = this.state;
-    const {dateValue, endValue, staffValue, skillValue} =this.state;
+    const {dateValue, endValue, staffValue, skillValue, skillTextValue} =this.state;
 
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <p>I work </p>
           <CenteredGrid 
-          handleSummaryChange={this.handleSummaryChange} 
-          summaryValue={summaryValue} 
-          handleDateChange={this.handleDateChange} 
-          dateValue={dateValue}
-          handleEndChange={this.handleEndChange} 
-          endValue={endValue} 
-          handleStaffChange={this.handleStaffChange} 
-          staffValue={staffValue}
-          handleSkillChange={this.handleSkillChange}
-          skillValue={skillValue}
+            handleSummaryChange={this.handleSummaryChange} 
+            summaryValue={summaryValue} 
+            handleDateChange={this.handleDateChange} 
+            dateValue={dateValue}
+            handleEndChange={this.handleEndChange} 
+            endValue={endValue} 
+            handleStaffChange={this.handleStaffChange} 
+            staffValue={staffValue}
+            handleSkillChange={this.handleSkillChange}
+            skillValue={skillValue}
+            skillTextValue={skillTextValue} 
+            handleSkillTextChange={this.handleSkillTextChange}
+            handleSkillClick={this.handleSkillClick}
+            handleRemoveSkill={this.handleRemoveSkill}
           />
         </div>
       </MuiThemeProvider>

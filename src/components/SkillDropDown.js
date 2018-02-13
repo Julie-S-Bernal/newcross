@@ -23,6 +23,10 @@ const styles = theme => ({
 
 class SkillDropdown extends React.Component {
 
+  propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+
   render() {
     const{classes, skillValue, handleSkillChange } = this.props;
     return (

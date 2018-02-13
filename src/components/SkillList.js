@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem,ListItemText} from 'material-ui/List';
+import List, { ListItem,ListItemText, ListItemIcon} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import { FormGroup, FormControlLabel } from 'material-ui/Form';
@@ -14,6 +14,8 @@ import SkillDropDown from './SkillDropDown';
 import CenteredGrid from './CenteredGrid';
 import {skillValue} from './CenteredGrid';
 import {handleSkillChange} from'./CenteredGrid';
+import { Remove } from 'material-ui-icons';
+import Button from 'material-ui/Button';
 
 
 const styles = theme => ({
@@ -26,7 +28,7 @@ const styles = theme => ({
   },
 });
 
-class ItemsList extends React.Component {
+class SkillList extends React.Component {
 
   propTypes = {
     classes: PropTypes.object.isRequired,
@@ -35,20 +37,19 @@ class ItemsList extends React.Component {
   render() {
 
     //render them into list here
-    const {classes} = this.props;
+    const {classes, handleRemoveSkill} = this.props;
     console.log(this.props.skills);
     return (
       <div className={classes.root}>
               <List>
-                <ListItem>
-                  { this.props.skills && this.props.skills.map(skill => 
-                    <ListItemText
-                    primarykey={this.handleSkillChange }
-                    secondary={skill}
-                    //to do a function to push them into the list each time the user does it.
-                    />
+                  { this.props.skills && this.props.skills.map((skill, index) => 
+                    <ListItem button onClick={(event) => handleRemoveSkill(index) }>
+                      <ListItemIcon>
+                        <Remove /> 
+                      </ListItemIcon>
+                      <ListItemText primary={skill}  />
+                    </ListItem>
                   )}
-                </ListItem>
               </List>
             </div>
     );
@@ -56,4 +57,4 @@ class ItemsList extends React.Component {
 }
 
 
-export default withStyles(styles)(ItemsList);
+export default withStyles(styles)(SkillList);
