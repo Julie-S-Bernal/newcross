@@ -6,7 +6,6 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import { blue, grey, red } from 'material-ui/colors';
 import './style/App.css';
 import IndexPage from './components/IndexPage.js';
-import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
 
 
@@ -26,7 +25,6 @@ const theme = createMuiTheme({
     error: red,
   },
 });
-
 class App extends React.Component {
 
   SUMMARYVALUEDEFAULT =  'Please add summary of client and why they need care';
@@ -78,16 +76,13 @@ class App extends React.Component {
     });
   }
 
+
   handleSkillClick = (event) => {
     const newSkillValues = [...this.state.skillValue, this.state.skillTextValue]
     this.setState({ skillValue:  newSkillValues});
   }
   
-  handleStaffChange = (event) =>  {
-    this.setState({
-      skillTextValue: event.target.value,
-    });
-  }
+ 
 
   handleRemoveSkill = (index) => {
     this.setState( (state) => {
@@ -103,7 +98,7 @@ class App extends React.Component {
       dateValue,
       endValue,
       staffValue,
-      skillValue   
+      skillValue  
     } = this.state;
 
     const errors = []
@@ -147,6 +142,7 @@ class App extends React.Component {
 
   submit = () => console.log(this.state);
 
+
   render() {
     const { summaryValue } = this.state;
     const {dateValue, endValue, staffValue, skillValue, skillTextValue} =this.state;
@@ -154,7 +150,6 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <p>I work </p>
           <IndexPage
             handleSummaryChange={this.handleSummaryChange} 
             summaryValue={summaryValue} 
@@ -171,12 +166,13 @@ class App extends React.Component {
             handleSkillClick={this.handleSkillClick}
             handleRemoveSkill={this.handleRemoveSkill}
           />
-          <Divider />
-          <Button 
-            onClick={ () => { 
+          
+          <Button  className="button" variant="raised" color="primary"
+            onClick={ (event) => { 
               if(this.valid()){ 
                 this.submit(); 
               }
+              
               }}>
               Next 
           </Button>

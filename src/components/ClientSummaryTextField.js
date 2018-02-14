@@ -8,17 +8,19 @@ const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    fontSize: '12px',
+    color: !'grey', 
   },
   textField: {
     borderRadius: 4,
     backgroundColor: theme.palette.common.white,
     border: '1px solid #ced4da',
-    fontSize: 14,
+    fontSize: '12px',
     multiLine: true,
-    lineHeight: '-30px',
+
     padding: '1vh',
-    margin: '2vh 2vh 2vh 2vh',
-    width: '40vw',
+    // margin: '2h vh 2vh 1vh',
+    width: '44vw',
     // height: '20vh',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {

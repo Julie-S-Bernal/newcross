@@ -4,3 +4,11 @@
 h1 {
     font-family: 'Ubuntu', sans-serif;
   }
+
+body {
+    background-color:#FAFAFA;
+}
+
+.Mui-Imput {
+    color: grey;
+}

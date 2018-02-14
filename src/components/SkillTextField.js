@@ -113,7 +113,7 @@ class SkillTextField extends React.Component {
       }
       
       {! editMode && 
-        <Button onClick={this.handleClick}> 
+        <Button color="primary"onClick={this.handleClick}> 
           <Add /> 
           Add Additional Skills 
         </Button> 

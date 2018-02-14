@@ -6,9 +6,7 @@ import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'materi
 
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
+ 
   formControl: {
     margin: theme.spacing.unit * 3,
   },
@@ -32,6 +30,7 @@ class StaffGenderRadio extends React.Component {
             className={classes.group}
             value={staffValue}
             onChange={handleStaffChange}
+            style={{display:'flex', width: ''}}
           >
             <FormControlLabel value="None" control={<Radio />} label="none" />
             <FormControlLabel value="Male" control={<Radio />} label="Male" />
