@@ -17,9 +17,6 @@ const styles = theme => ({
     marginTop: 30,
   },
   paper: {
-    padding: 10,
-    width: '45vw',
-    height: '20vh',
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },

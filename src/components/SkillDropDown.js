@@ -30,9 +30,10 @@ class SkillDropdown extends React.Component {
   render() {
     const{classes, skillValue, handleSkillChange } = this.props;
     return (
-        <FormControl className={classes.formControl}>
+        <FormControl className={classes.formControl} fullWidth>
         <InputLabel htmlFor="simple">Select Skill and Competency</InputLabel>
         <Select
+          fullWidth
           value={skillValue}
           onChange={handleSkillChange}
         >     
