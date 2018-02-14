@@ -40,7 +40,6 @@ class ClientSummaryTextField extends React.Component{
   render() {
       
     const { classes, summaryValue, handleSummaryChange } = this.props;
-    console.log(summaryValue);
     return (
       <TextField
         value={summaryValue}

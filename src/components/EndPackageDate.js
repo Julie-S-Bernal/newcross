@@ -23,7 +23,6 @@ class EndPackageDate extends React.Component {
 
   render() {
     const{classes, endValue, handleEndChange } = this.props;
-    console.log(endValue);
 
     return (
       <div className={classes.root}>

@@ -38,7 +38,6 @@ class SkillList extends React.Component {
 
     //render them into list here
     const {classes, handleRemoveSkill} = this.props;
-    console.log(this.props.skills);
     return (
       <div className={classes.root}>
               <List>

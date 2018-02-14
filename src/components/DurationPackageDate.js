@@ -24,7 +24,6 @@ class DurationPackageDate extends React.Component{
   render(){
 
     const{classes, dateValue, handleDateChange } = this.props;
-    console.log(dateValue);
     return (
       <TextField
         value={dateValue}

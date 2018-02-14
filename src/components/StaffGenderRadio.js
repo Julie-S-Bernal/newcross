@@ -23,7 +23,6 @@ class StaffGenderRadio extends React.Component {
 
   render() {
     const{classes, staffValue, handleStaffChange } = this.props;
-    console.log(staffValue);
 
     return (
       <div className={classes.root}>
