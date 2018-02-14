@@ -10,6 +10,7 @@ import StaffGender from './StaffGender';
 import SkillDropdown from './SkillDropDown';
 import SkillList from './SkillList';
 import SkillTextField from './SkillTextField';
+import Stepper from './Stepper'
 
 const styles = theme => ({
   root: {
@@ -21,6 +22,7 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 });
+
 
 function CenteredGrid(props) {
   const { classes,
@@ -43,11 +45,9 @@ function CenteredGrid(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
-        <Grid item xs={12}>
-          {/* use stepper */}
-        </Grid>
+          <Stepper />
         <Grid item xs={6}>
-          <h1>Client Summary </h1>
+          <h1 style={fontSize} >Client Summary </h1>
           <Paper className={classes.paper}>
           <ClientSummary summaryValue={summaryValue} handleSummaryChange={handleSummaryChange} />
           </Paper>

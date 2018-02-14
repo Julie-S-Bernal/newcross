@@ -152,7 +152,6 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <p>I work </p>
           <CenteredGrid 
             handleSummaryChange={this.handleSummaryChange} 
             summaryValue={summaryValue} 
