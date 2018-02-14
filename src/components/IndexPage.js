@@ -12,6 +12,7 @@ import SkillList from './SkillList';
 import SkillTextField from './SkillTextField';
 import Stepper from './Stepper'
 
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -24,7 +25,7 @@ const styles = theme => ({
 });
 
 
-function CenteredGrid(props) {
+function IndexPage(props) {
   const { classes,
           summaryValue,
           handleSummaryChange,
@@ -41,26 +42,31 @@ function CenteredGrid(props) {
           handleSkillClick,
           handleRemoveSkill
         } = props;
-
+const title = {
+  fontSize: '16px',
+  color: 'grey',
+  textTransform: 'uppercase',
+  fontWeigth:'lighter',
+}
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
           <Stepper />
         <Grid item xs={6}>
-          <h1 style={fontSize} >Client Summary </h1>
+          <h1 style={title} >Client Summary </h1>
           <Paper className={classes.paper}>
           <ClientSummary summaryValue={summaryValue} handleSummaryChange={handleSummaryChange} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
-          <h1>Duration of Package </h1>
+          <h1 style={title}>Duration of Package </h1>
           <Paper className={classes.paper}>
           <DurationPackage dateValue= {dateValue} handleDateChange={handleDateChange} />
           <EndPackage endValue= {endValue} handleEndChange={handleEndChange} />
           </Paper>
         </Grid>
         <Grid item xs={6}>
-          <h1>Skills and Competencies Required </h1>
+          <h1 style={title}>Skills and Competencies Required </h1>
           <Paper className={classes.paper}>
             <SkillDropdown  skillValue={skillValue} handleSkillChange={handleSkillChange} />
             <SkillList skills={skillValue} handleRemoveSkill={handleRemoveSkill} />
@@ -72,7 +78,7 @@ function CenteredGrid(props) {
           </Paper>
         </Grid>
         <Grid item xs={6}>
-          <h1>Staff Gender Preferences </h1>
+          <h1 style={title}>Staff Gender Preferences </h1>
           <Paper className={classes.paper}>
           <StaffGender staffValue= {staffValue} handleStaffChange={handleStaffChange} />
           </Paper>
@@ -82,8 +88,8 @@ function CenteredGrid(props) {
   );
 }
 
-CenteredGrid.propTypes = {
+IndexPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CenteredGrid);
+export default withStyles(styles)(IndexPage);

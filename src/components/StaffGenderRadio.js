@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'material-ui/Form';
 
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -22,7 +23,7 @@ class StaffGenderRadio extends React.Component {
   };
 
   render() {
-    const{classes, staffValue, handleStaffChange } = this.props;
+    const{classes, staffValue, handleStaffChange} = this.props;
 
     return (
       <div className={classes.root}>

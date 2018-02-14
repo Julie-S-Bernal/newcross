@@ -5,9 +5,10 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // have a look at colors that I need here
 import { blue, grey, red } from 'material-ui/colors';
 import './style/App.css';
-import CenteredGrid from './components/CenteredGrid.js';
+import IndexPage from './components/IndexPage.js';
 import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
+
 
 const accent = blue['500'];
 const second = grey['100'];
@@ -109,28 +110,29 @@ class App extends React.Component {
     let valid = true  
 
     if(!summaryValue || summaryValue === this.SUMMARYVALUEDEFAULT) {
-      errors.push("Client summary is not valid.")
+      errors.push("Summary not valid.")
       valid =  false
     }
     
     if(!dateValue || dateValue === this.DATEVALUEDEFAULT) {
-      errors.push('Start date is not valid.')
+      errors.push('Start date not valid.')
       valid =  false;
     }
 
     if(! endValue || endValue === this.ENDVALUEDEFAULT ){
-      errors.push('End date not is valid.')
+
       valid =  false
-      
+      errors.push('Start date not valid.')
     }
 
     if(!staffValue || staffValue === this.STAFFVALUEDEFAULT){
-      errors.push('Staff preference is not valid')
+      
       valid =  false;
+      errors.push('Start date not valid.')
     }
     
     if(!skillValue ||  skillValue.length < 1){
-      errors.push('Imput at least one skill')
+      
       valid =  false;
     }
     const reducer = (accumulator, currentValue) => accumulator + '\n' + currentValue;
@@ -152,7 +154,8 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <CenteredGrid 
+          <p>I work </p>
+          <IndexPage
             handleSummaryChange={this.handleSummaryChange} 
             summaryValue={summaryValue} 
             handleDateChange={this.handleDateChange} 

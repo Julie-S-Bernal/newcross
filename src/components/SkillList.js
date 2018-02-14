@@ -11,9 +11,9 @@ import Typography from 'material-ui/Typography';
 import FolderIcon from 'material-ui-icons/Folder';
 import DeleteIcon from 'material-ui-icons/Delete';
 import SkillDropDown from './SkillDropDown';
-import CenteredGrid from './CenteredGrid';
-import {skillValue} from './CenteredGrid';
-import {handleSkillChange} from'./CenteredGrid';
+import IndexPage from './IndexPage';
+import {skillValue} from './IndexPage';
+import {handleSkillChange} from'./IndexPage';
 import { Remove } from 'material-ui-icons';
 import Button from 'material-ui/Button';
 

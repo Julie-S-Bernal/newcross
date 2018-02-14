@@ -18,7 +18,7 @@ const styles = theme => ({
     lineHeight: '-30px',
     padding: '1vh',
     margin: '2vh 2vh 2vh 2vh',
-    width: '42vw',
+    width: '40vw',
     // height: '20vh',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
@@ -35,13 +35,13 @@ class ClientSummaryTextField extends React.Component{
   propTypes = {
     classes: PropTypes.object.isRequired,
   };
-
+  
  
   render() {
       
     const { classes, summaryValue, handleSummaryChange } = this.props;
     return (
-      <TextField
+      <TextField  
         value={summaryValue}
         onChange={handleSummaryChange}
         rowsMax="4"
