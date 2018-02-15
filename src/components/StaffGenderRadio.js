@@ -27,6 +27,7 @@ class StaffGenderRadio extends React.Component {
       <div className={classes.root}>
         <FormControl component="fieldset" required className={classes.formControl}>
           <RadioGroup
+            required
             className={classes.group}
             value={staffValue}
             onChange={handleStaffChange}

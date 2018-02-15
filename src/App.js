@@ -82,8 +82,6 @@ class App extends React.Component {
     this.setState({ skillValue:  newSkillValues});
   }
   
- 
-
   handleRemoveSkill = (index) => {
     this.setState( (state) => {
       const val = this.state.skillValue;
@@ -131,10 +129,10 @@ class App extends React.Component {
       valid =  false;
     }
     const reducer = (accumulator, currentValue) => accumulator + '\n' + currentValue;
-    
-    if(errors)
+    console.log(reducer);
+    if(errors){
       alert(errors.reduce(reducer));
-    else{
+    }else{
       alert('Form not valid.')
     }
     return true
@@ -166,16 +164,6 @@ class App extends React.Component {
             handleSkillClick={this.handleSkillClick}
             handleRemoveSkill={this.handleRemoveSkill}
           />
-          
-          <Button  className="button" variant="raised" color="primary"
-            onClick={ (event) => { 
-              if(this.valid()){ 
-                this.submit(); 
-              }
-              
-              }}>
-              Next 
-          </Button>
 
         </div>
       </MuiThemeProvider>
