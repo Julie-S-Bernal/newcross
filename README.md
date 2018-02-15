@@ -23,3 +23,8 @@ Guidelines
 - You are free to choose the frameworks and tools you want.
 - Please upload your code on a Github project.
 - Good luck :)
+
+Start the app
+------
+
+yarn start
