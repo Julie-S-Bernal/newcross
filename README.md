@@ -26,5 +26,5 @@ Guidelines
 
 Start the app
 ------
-1/run yarn to install dependencies
-2/yarn start
+- run yarn to install dependencies
+- yarn start
