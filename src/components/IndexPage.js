@@ -71,8 +71,10 @@ const title = {
           <Grid item item xs={6} sm={6} md={6} lg={6} xl={6}>
             <h1 style={title}>Duration of Package </h1>
             <Paper className={classes.paper}>
-            <DurationPackageDate dateValue= {dateValue} handleDateChange={handleDateChange} />
-            <EndPackageDate endValue= {endValue} handleEndChange={handleEndChange} />
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+              <DurationPackageDate dateValue= {dateValue} handleDateChange={handleDateChange} />
+              <EndPackageDate endValue= {endValue} handleEndChange={handleEndChange} />
+            </div>
             </Paper>
           </Grid>
           <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>

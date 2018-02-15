@@ -9,13 +9,14 @@ class DurationPackageDate extends React.Component{
   render(){
     const{classes, dateValue, handleDateChange } = this.props;
     return (
-      <TextField
-       fullWidth
+ 
+      <TextField  style={{ borderRight: '0.4vh solid grey', padding: '1vh', paddingLeft:'8vw' }}
         value={dateValue}
         onChange={handleDateChange}
         label=""
         type="date"
       />
+
     );
   }
 }

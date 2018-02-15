@@ -25,9 +25,9 @@ class EndPackageDate extends React.Component {
     const{classes, endValue, handleEndChange } = this.props;
 
     return (
-      <div className={classes.root}>
+      <div className={classes.root}  >
         <FormControl component="fieldset" required className={classes.formControl}>
-          <RadioGroup
+          <RadioGroup 
             className={classes.group}
             value={endValue}
             onChange={handleEndChange}

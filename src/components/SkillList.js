@@ -19,6 +19,7 @@ class SkillList extends React.Component {
   propTypes = {
     classes: PropTypes.object.isRequired,
   };
+  
 
   render() {
 
