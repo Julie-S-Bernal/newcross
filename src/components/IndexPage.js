@@ -11,9 +11,9 @@ import StaffGenderRadio from './StaffGenderRadio';
 import SkillDropdown from './SkillDropDown';
 import SkillList from './SkillList';
 import SkillTextField from './SkillTextField';
-import Stepper from './Stepper'
+import Steps from './Steps'
 import Divider from 'material-ui/Divider';
-
+import '../App.js';
 
 const styles = theme => ({
   root: {
@@ -26,7 +26,6 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 });
-
 
 function IndexPage(props) {
   const { classes,
@@ -43,8 +42,11 @@ function IndexPage(props) {
           skillTextValue,
           handleSkillTextChange,
           handleSkillClick,
-          handleRemoveSkill
+          handleRemoveSkill,
+          handleSubmit,
         } = props;
+      
+     
 const title = {
   fontSize: '16px',
   color: 'grey',
@@ -55,10 +57,10 @@ const title = {
 
   return (
     <div className={classes.root}>
-    <form>
+    <form onSubmit={handleSubmit}>
         <Grid justify="center" container spacing={24}>
         <Grid  item xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Stepper />
+            <Steps />
         </Grid>
           <Grid  item xs={6} sm={6} md={6} lg={6} xl={6}>
             <h1 style={title} >Client Summary </h1>
@@ -78,6 +80,7 @@ const title = {
             <Paper className={classes.paper}>
               <SkillDropdown  skillValue={skillValue} handleSkillChange={handleSkillChange} />
               <SkillList skills={skillValue} handleRemoveSkill={handleRemoveSkill} />
+              <Divider />
               <SkillTextField 
                 skillTextValue={skillTextValue}
                 handleSkillTextChange={handleSkillTextChange} 
@@ -92,8 +95,10 @@ const title = {
             </Paper>
           </Grid>
           <Grid   item xs={12} sm={12} md={12} lg={12} xl={12}>
-          <Divider />
-          <Button type="submit">
+            <Divider />
+          </Grid>
+          <Grid   item xs={12} sm={12} md={12} lg={12} xl={12}>
+          <Button variant="raised" color="primary" type="submit" className="btn btn-primary">
             Next 
           </Button>
           </Grid>

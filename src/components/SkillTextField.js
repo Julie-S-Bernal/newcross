@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Input, { InputLabel } from 'material-ui/Input';
 import TextField from 'material-ui/TextField';
-import { FormControl } from 'material-ui/Form';
 import purple from 'material-ui/colors/purple';
 import Button from 'material-ui/Button';
 import { Add } from 'material-ui-icons';
@@ -48,7 +46,6 @@ const styles = theme => ({
   },
 });
 
-
 const AdditionalSkillTextField = (props) =>  {
   const { skillTextValue, handleSkillTextChange, classes } = props;
   return   (<TextField
@@ -67,8 +64,6 @@ const AdditionalSkillTextField = (props) =>  {
     }}
   />)
 }
-
-
 
 class SkillTextField extends React.Component {
 
@@ -100,13 +95,7 @@ class SkillTextField extends React.Component {
             handleSkillTextChange={handleSkillTextChange} 
             handleSkillClick={handleSkillClick}
           />
-          <Button 
-            variant="raised" 
-            onClick={ 
-              (event) => { 
-                this.setState({editMode: false}); 
-                handleSkillClick(event)}
-            }> 
+          <Button variant="raised" onClick={handleSkillClick}> 
             Add
           </Button>
         </div> 

@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 
 const styles = theme => ({
   root: {
@@ -16,18 +14,7 @@ function getSteps() {
   return ['General Information', 'Package Details'];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return 'General Information';
-    case 1:
-      return 'Package Details';
-    default:
-      return 'Uknown stepIndex';
-  }
-}
-
-class HorizontalLabelPositionBelowStepper extends React.Component {
+class Steps extends React.Component {
   state = {
     activeStep: 0,
   };
@@ -73,8 +60,8 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   }
 }
 
-HorizontalLabelPositionBelowStepper.propTypes = {
+Steps.propTypes = {
   classes: PropTypes.object,
 };
 
-export default withStyles(styles)(HorizontalLabelPositionBelowStepper);
+export default withStyles(styles)(Steps);

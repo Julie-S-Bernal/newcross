@@ -44,7 +44,6 @@ class ClientSummaryTextField extends React.Component{
     const { classes, summaryValue, handleSummaryChange } = this.props;
     return (
       <TextField  
-        required
         value={summaryValue}
         onChange={handleSummaryChange}
         rowsMax="4"

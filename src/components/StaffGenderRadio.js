@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Radio, { RadioGroup } from 'material-ui/Radio';
-import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'material-ui/Form';
+import { FormControl, FormControlLabel } from 'material-ui/Form';
 
 
 const styles = theme => ({
@@ -28,10 +28,10 @@ class StaffGenderRadio extends React.Component {
         <FormControl component="fieldset" required className={classes.formControl}>
           <RadioGroup
             required
+            row
             className={classes.group}
             value={staffValue}
             onChange={handleStaffChange}
-            style={{display:'flex', width: ''}}
           >
             <FormControlLabel value="None" control={<Radio />} label="none" />
             <FormControlLabel value="Male" control={<Radio />} label="Male" />

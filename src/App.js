@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // have a look at colors that I need here
 import { blue, grey, red } from 'material-ui/colors';
 import './style/App.css';
 import IndexPage from './components/IndexPage.js';
-import Button from 'material-ui/Button';
-
+import NotificationSystem from  'react-notification-system';
 
 const accent = blue['500'];
 const second = grey['100'];
@@ -27,8 +24,23 @@ const theme = createMuiTheme({
 });
 class App extends React.Component {
 
+  // followed example form react-notification-system:
+  // https://github.com/igorprado/react-notification-system 
+  _notificationSystem = null;
+
+  addNotification = (msg, level='error') => {
+    this._notificationSystem.addNotification({
+      message: msg,
+      level: level
+    });
+  }
+
+  componentDidMount =() => {
+    this._notificationSystem = this.refs.notificationSystem;
+  }
+
   SUMMARYVALUEDEFAULT =  'Please add summary of client and why they need care';
-  DATEVALUEDEFAULT = '01/01/2018';
+  DATEVALUEDEFAULT = null;
   ENDVALUEDEFAULT = null;
   STAFFVALUEDEFAULT= null;
   SKILLVALUEDEFAULT= [];
@@ -42,7 +54,7 @@ class App extends React.Component {
     skillValue: this.SKILLVALUEDEFAULT,
     skillTextValue: this.SKILLTEXTVALUEDEFAULT,
   };
-
+  
   handleSummaryChange = (event) => {
     this.setState({
       summaryValue: event.target.value,
@@ -76,10 +88,13 @@ class App extends React.Component {
     });
   }
 
-
   handleSkillClick = (event) => {
-    const newSkillValues = [...this.state.skillValue, this.state.skillTextValue]
-    this.setState({ skillValue:  newSkillValues});
+    if(this.state.skillTextValue === this.SKILLTEXTVALUEDEFAULT || this.state.skillTextValue === '') {
+      this.addNotification('Please enter a Skill.');
+    } else {
+      const newSkillValues = [...this.state.skillValue, this.state.skillTextValue]
+      this.setState({ skillValue:  newSkillValues, editMode: false});
+    }
   }
   
   handleRemoveSkill = (index) => {
@@ -89,8 +104,8 @@ class App extends React.Component {
       return { skillValue: val }
     }) 
   }
-
-  valid = () => {
+  
+  validate = () => {
     const {
       summaryValue,
       dateValue,
@@ -103,47 +118,43 @@ class App extends React.Component {
     let valid = true  
 
     if(!summaryValue || summaryValue === this.SUMMARYVALUEDEFAULT) {
-      errors.push("Summary not valid.")
+      this.addNotification("Please complete summary text box.");
       valid =  false
     }
     
     if(!dateValue || dateValue === this.DATEVALUEDEFAULT) {
-      errors.push('Start date not valid.')
+      this.addNotification('Please select a start date.');
       valid =  false;
     }
 
     if(! endValue || endValue === this.ENDVALUEDEFAULT ){
-
-      valid =  false
-      errors.push('Start date not valid.')
+      valid =  false;
+      this.addNotification('Please selelct an end date unless you are receiving ongoing treatement.');
     }
 
     if(!staffValue || staffValue === this.STAFFVALUEDEFAULT){
-      
       valid =  false;
-      errors.push('Start date not valid.')
+      this.addNotification('Please select a staff gender preference.')
     }
     
     if(!skillValue ||  skillValue.length < 1){
-      
+      this.addNotification('You must select a least one skill.')
       valid =  false;
     }
-    const reducer = (accumulator, currentValue) => accumulator + '\n' + currentValue;
-    console.log(reducer);
-    if(errors){
-      alert(errors.reduce(reducer));
-    }else{
-      alert('Form not valid.')
-    }
+    
     return true
   }
 
-  submit = () => console.log(this.state);
-
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if(this.validate()){
+      console.log(this.state);
+    }    
+  }
 
   render() {
     const { summaryValue } = this.state;
-    const {dateValue, endValue, staffValue, skillValue, skillTextValue} =this.state;
+    const {dateValue, endValue, staffValue, skillValue, skillTextValue, handleSubmit} =this.state;
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -163,9 +174,11 @@ class App extends React.Component {
             handleSkillTextChange={this.handleSkillTextChange}
             handleSkillClick={this.handleSkillClick}
             handleRemoveSkill={this.handleRemoveSkill}
+            handleSubmit={this.handleSubmit}
           />
 
         </div>
+        <NotificationSystem ref="notificationSystem" />
       </MuiThemeProvider>
     );
   }
